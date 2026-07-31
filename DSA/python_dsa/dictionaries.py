@@ -17,6 +17,11 @@ if "key" in map:
     for k, v in map.items():
         print(k, v)
 
+if "key" in map:
+    val = map["key", 0]
+    for k, v in map.items():
+        print (k,v)
+
 # dictionary of lists for representing a graph
 graph = defaultdict(list)
 graph["a"].append("b")
@@ -31,4 +36,5 @@ freq = Counter(s)
 freq.most_common(3)  # returns the 3 most common characters in the string
 freq["z"] # returns 0 for characters not in the string
 
-
+city_list = [('TX', 'Austin')]
+cities_by_state = defaultdict()
