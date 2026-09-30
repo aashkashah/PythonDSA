@@ -2,7 +2,6 @@
 from collections import defaultdict
 from collections import Counter
 
-
 # dictionary for storing key-value pairs
 map = {}
 
@@ -10,7 +9,6 @@ map["key"] = 1
 map["key 2"] = 2
 map["key 3"] = 3
 map["key 4"] = 4
-
 
 if "key" in map:
     val = map["key", 0]

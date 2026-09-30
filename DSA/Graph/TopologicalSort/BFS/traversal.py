@@ -98,6 +98,47 @@ class Solution:
         
         return island
     
+    def rotting_oranges(self, grid: List[List[str]]) -> int:
+        
+        if not grid:
+            return -1
+        
+        rows, cols = len(grid), len(grid[0])
+        q = deque()
+        fresh_oranges = 0
+        minutes = 0
+        
+        for r in range(rows):
+            for c in range(cols):
+                if grid[r][c] == 'R':
+                    q.append((r, c))
+                elif grid[r][c] == 'F':
+                    fresh_oranges += 1 
+        
+        dirR = { -1, 1, 0, 0 }
+        dirC = { 0, 0, -1, 1 } 
+        
+        while q and fresh_oranges > 0:
+            level_sum = len(q)
+            minutes += 1
+            
+            for i in range(level_sum):
+                (r, c) = q.popleft()
+                
+                for k in range(4):
+                    kr = dirR[k] + r
+                    kc = dirC[k] + c
+                    
+                    if kr < 0 or kc < 0 or kr >= rows or kc >= cols:
+                        continue
+                    
+                    if grid[kr][kc] == 'F':
+                        fresh_oranges -= 1
+                        q.append((kr, kc))
+                        grid[kr][kc] = 'R'
+        
+        return minutes if fresh_oranges == 0 else -1
+                       
     
 if __name__ == "__main__":
     sol = Solution()

@@ -30,3 +30,27 @@ for x, y in points:
     dist = x*x + y*y
     heapq.heappush(max_heap, (-dist, x, y))
     
+  
+numbers = [25, 30, 15]  
+heapq.heapify(numbers)
+
+heapq.heappush(numbers, 10)
+heapq.heappop(numbers)
+
+while numbers:
+    smallest = heapq.heappop(numbers)
+    print(smallest, end =" ")
+    
+max_heap = []
+for val in [5, 4, 3, 2, 1]:
+    heapq.heappush(max_heap, -val)
+    
+largest = -heap.heappop(max_heap)
+
+pq = list[(int, str)] = []
+
+heapq.heappush(pq, (3, "clear inbox"))
+heapq.heappush(pq, (1, "clear bug"))
+
+next_task = heapq.heappop(pq)
+

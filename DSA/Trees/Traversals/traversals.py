@@ -1,6 +1,6 @@
 
 from collections import deque
-from typing import List
+from typing import List, Optional
 
 from DSA.Trees.LCA.tree_base import TreeNode
 
@@ -48,6 +48,29 @@ class Solution:
         
         return result
 
+    def level_order_sum(self, root: Optional[TreeNode]) -> List[int]:
+        if not root:
+            return []
+        
+        sums = []
+        queue: deque[TreeNode] = deque([root])
+        
+        while queue:
+            level_size = len(queue)
+            sum = 0
+            for i in range(level_size):
+                node = queue.popleft()
+                sum += node.val
+                
+                if i == level_size - 1:
+                    sums.append(sum)
+                if node.left:
+                    queue.append(node.left)
+                if node.right:
+                    queue.append(node.right)
+                    
+        return sums
+        
     
 if __name__ == "__main__":
     sol = Solution()

@@ -35,7 +35,39 @@ class Solution:
         for c in range(mincol, maxcol + 1):
             result.append(cols[c]) 
         return result
-       
+    
+    def zig_zag(self, root: TreeNode) -> list[list[int]]:
+        res = []
+        
+        if root is None:
+            return res
+        
+        q = deque()
+        q.append(root)
+        is_left_to_right = True
+        
+        while q:
+            lvl = len(q)
+            curres = []
+            
+            for i in range(lvl):
+                cur = q.popleft()
+                curres.append(cur.val)
+                
+                if cur.left:
+                    q.append(cur.left)
+                    
+                if cur.right:
+                    q.append(cur.right)
+                    
+            if is_left_to_right:
+                res.append(curres)
+            else:
+                curres.reverse()
+                res.append(curres)
+            is_left_to_right = not is_left_to_right
+            
+        return res
             
 if __name__ == "__main__":
     sol = Solution()
