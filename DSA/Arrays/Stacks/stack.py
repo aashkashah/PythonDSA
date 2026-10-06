@@ -23,18 +23,20 @@ class StackQues:
     def decodeString(self, s):
         stack = []
         curr_string = ""
-        current_number = 0
+        curr_number = 0
         
         for char in s:
             if char == "[":
                 stack.append(curr_string)
-                stack.append(current_number)
+                stack.append(curr_number)
                 curr_string = ""
-                current_number = 0
+                curr_number = 0
             elif char == "]":
                 num = stack.pop()
                 prev_string = stack.pop()
                 curr_string = prev_string + num * curr_string
+            elif char.isdigit((char)):
+                curr_number = curr_number * 10 + int(char)
             else:
                 curr_string += char
         
