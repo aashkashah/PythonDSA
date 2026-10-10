@@ -1,3 +1,5 @@
+from typing import Optional
+
 from DSA.Trees.LCA.tree_base import TreeNode
 
 
@@ -22,3 +24,22 @@ class BottomUp:
         right = self.maxDepth(root.right)
         
         return 1 + max(left, right)
+    
+    def calculateTilt(self, root: Optional[TreeNode]) -> int:
+        tilt = 0
+        
+        def dfs(node):
+            nonlocal tilt
+            
+            if not node:
+                return 0
+            
+            left = dfs(node.left)
+            right = dfs(node.right)
+            
+            tilt += abs(left - right)
+            return left + right + node.val
+        
+        dfs(root)
+        return tilt
+            

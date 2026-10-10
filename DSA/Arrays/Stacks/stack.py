@@ -41,19 +41,4 @@ class StackQues:
                 curr_string += char
         
         return curr_string
-    
-    def dailyTemperatures(self, temps):
-        
-        n = len(temps)
-        result = list[0] * n
-        stack = []
-        
-        for i in range(n):
-            while stack and temps[i] > temps[stack[-1]]:
-                idx = stack.pop()
-                result[idx] = i - idx
-            
-            stack.append(i)
-        
-        return result
                 

@@ -2,7 +2,6 @@ from typing import List
 
 from DSA.Trees.LCA.tree_base import TreeNode
 
-
 class Solution:
     
     def pathSum2(self, root: TreeNode, target: int) -> List[List[int]]:
