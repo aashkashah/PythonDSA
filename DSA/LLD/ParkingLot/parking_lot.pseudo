@@ -1,0 +1,43 @@
+class ParkingLot:
+
+    - spots: List<parkingSpot>
+    - occupiedSpotIds: Set<string>
+    - activeTickets: Map<string, Ticket>
+    - hourlyRateCents: long
+
+    + ParkingLot(spots, hourlyRateCents)
+    + enter(vehicleType) -> Ticket
+    + exit(ticketId) -> long
+
+class ParkingSpot:
+
+    - id: string
+    - spotType: SpotType
+
+    + ParkingSpot(id, spotType)
+    + getSpotType() -> SpotType
+    + getId() -> string
+
+class Ticket:
+
+    - id: string
+    - spotId: string
+    - vehicleType: VehicleType
+    - entryTime: long
+
+    + Ticket(id, spotId, vehicleType, entryTime)
+    + getId() -> string
+    + getSpotId() -> string
+    + getVehicleType -> VehicleType
+    + getEntryTime() -> long
+
+enum SpotType:
+    MOTORCYCLE
+    CAR
+    LARGE
+
+enum VehicleType:
+    MOTORCYCLE
+    CAR
+    LARGE
+

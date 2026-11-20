@@ -19,7 +19,7 @@ class Game:
         self.winner = Optional[Player] = None
         
     def make_move(self, player, column: int) -> bool:
-            pass
+        pass
      
     def get_current_player(self) -> Player:
         pass

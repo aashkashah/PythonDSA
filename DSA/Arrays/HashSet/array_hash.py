@@ -25,6 +25,19 @@ class Solution:
         
         return result
     
+    def twoSum(self, nums: list[int], target: int) -> list[int]:
+        seen = {}
+        
+        for i, elem in enumerate(nums):
+            complement = target - elem
+            
+            if complement in seen:
+                return [seen[complement], i]
+            seen[elem] = i
+            
+        return [-1, -1]
+            
+    
 if __name__ == "__main__":
     sol = Solution()
     print(sol.topKFrequent([1,1,1,2,2,3], 2))

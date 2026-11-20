@@ -17,10 +17,8 @@ class week1_day2:
         # python way [expression for item in collection if condition]
         # passed = [result[model] for result in results if result[score] >= 0.7] 
         
-        
         ## sort results 
         sorted(results, key=lambda result: result["score"], reverse=True)
-        
         
         return passed
     
